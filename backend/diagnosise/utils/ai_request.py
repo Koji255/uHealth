@@ -4,7 +4,7 @@ from openai import OpenAI
 def ai_request(simptoms):
     '''
     Request to an AI to define disease.
-    Returns dict with 2 keys: disease_category & description.
+    Returns dict of lists with keys: disease_category & description.
     '''
     client = OpenAI(
         api_key="sk-AJIPtiFlPxvPvao2TYREAV99wEJHKoEq",
@@ -17,33 +17,29 @@ def ai_request(simptoms):
         messages=[
             {
                 "role": "user",
-                "content": f"Выведи наиболее вероятную болезнь или несколько болезненей (но не более 3х), разделив их только пробелами по следующим симптомам: {simptoms}. В твоем сообщении должны быть только названия болезней. Без точки в конце",
+                "content": f"Выведи наиболее вероятную болезнь или несколько болезненей (но не более 3х), разделив их только запятыми по следующим симптомам в квадратных скобках:[ {simptoms} ]. В твоем сообщении должны быть только названия болезней. Без точки в конце",
             }
         ]
     )
 
-    disease_category = completion_disease.choices[0].message.content
-    
-
+    disease_category = completion_disease.choices[0].message.content.split(sep=",")
 
     completion_description = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
             {
                 "role": "user",
-                "content": f"Расскажи про каждую болезнь из этого списка: {disease_category}. На описание каждой болезни примерно 80-110 слов. Пиши в научном формате. Каждый текст раздели знаком ';'. В конце без точки. В твоем сообщении должны быть только описания на все болезни."
+                "content": f"Расскажи про каждую болезнь из этого списка: {disease_category}. На описание каждой болезни примерно 90-110 слов. Пиши в научном формате. Каждый текст раздели знаком ';'. В конце без точки. В твоем сообщении должны быть только описания на все болезни. В последнем предложении напиши медицинскую специализацию, которая занимается лечением этого недуга."
             }
         ]
     )
 
-    description = completion_description.choices[0].message.content
-
+    description = completion_description.choices[0].message.content.split(sep=";")
 
     return {
         'disease_category': disease_category,
         'description': description,
     }
-
 
 
 

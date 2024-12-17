@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>ai-help</title>
+{% endblock %}
+
+{% block body %}
+    <form class="custom-form" action="{% url 'diagnosise:ai_consultation' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <button type="submit">Отправить</button>
+    </form>
+{% endblock %}

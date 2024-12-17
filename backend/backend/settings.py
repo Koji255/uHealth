@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
 
     'users',
+    'core',
     'diagnosise',
 ]
 
@@ -75,7 +76,12 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates', BASE_DIR / 'users/templates/users',],
+        'DIRS': ['templates',
+                 BASE_DIR / 'users/templates/users',
+                 BASE_DIR / 'diagnosise/templates/diagnosise',
+                 BASE_DIR / 'core/templates/core',
+                 ],
+
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
