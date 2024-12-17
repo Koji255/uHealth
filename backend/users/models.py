@@ -12,6 +12,7 @@ class User(AbstractUser):
 
     birthday = models.DateField(blank=True, null=True, verbose_name='Дата Рождения')
 
+
     def save(self, *args, **kwargs):
         if self.password and not self.password.startswith(('pbkdf2_sha256$', 'bcrypt$', 'argon2')):
             self.password = make_password(self.password)
