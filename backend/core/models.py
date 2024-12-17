@@ -2,4 +2,28 @@ from django.db import models
 
 from users.models import User
 
+
 # Create your models here.
+class Appointment(models.Model):
+
+    time = models.DateTimeField(blank=True, null=True, auto_now=False, auto_now_add=False,
+                                verbose_name='Назначенное Время')
+    
+    status = models.CharField(max_length=10, default='ожидание', verbose_name='Статус Заявки')
+    
+    date_created = models.DateTimeField(auto_now_add=True)
+    # Relationsheeps custom reverse!
+    user = models.ForeignKey(User, on_delete=models.PROTECT,
+                             related_name='appointment_as_user')
+    # Relationsheeps custom reverse!
+    doctor = models.ForeignKey(User, on_delete=models.PROTECT,
+                               related_name='appointment_as_doctor')
+
+
+    def __str__(self):
+        return f'Appointment with {self.doctor} by {self.user} at {self.time}'
+    
+
+    class Meta:
+        verbose_name = 'Заявление на прием'
+        verbose_name_plural = 'Заявления на прием'
