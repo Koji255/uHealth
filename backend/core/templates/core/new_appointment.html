@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>new-appointment</title>
+{% endblock %}
+
+{% block body %}
+    <form action="{% url 'core:new-appointment' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Отправить</button>
+    </form>
+{% endblock %}

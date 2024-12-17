@@ -8,7 +8,8 @@ class User(AbstractUser):
 
     role = models.CharField(max_length=30, default='user', verbose_name='Роль')
 
-    phone = models.CharField(max_length=15, blank=True, null=True, verbose_name='Номер Телефона')
+    phone = models.CharField(max_length=15, blank=True, null=True, unique=True,
+                             verbose_name='Номер Телефона')
 
     birthday = models.DateField(blank=True, null=True, verbose_name='Дата Рождения')
 

@@ -73,7 +73,7 @@ def logout(request):
     """Logout view"""
     auth.logout(request)
 
-    return HttpResponseRedirect(reverse("core:index"))
+    return HttpResponseRedirect(reverse("index"))
 
 class CustomPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
     """Password change View"""

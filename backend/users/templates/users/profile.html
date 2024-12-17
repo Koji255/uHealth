@@ -11,6 +11,8 @@
         {{ form.as_p }}
 
         <a href="{% url 'users:user_change_password' %}">Изменить Пароль</a>
+        <a href="{% url 'users:user_logout' %}">Выйти из аккаунта</a>
+
         <button type="submit">Отправить</button>
     </form>
 </body>

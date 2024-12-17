@@ -11,13 +11,18 @@ class Appointment(models.Model):
     
     status = models.CharField(max_length=10, default='ожидание', verbose_name='Статус Заявки')
     
-    date_created = models.DateTimeField(auto_now_add=True)
+    date_created = models.DateTimeField(auto_now_add=True, verbose_name='Дата Создания')
+
+    spezialisation = models.CharField(max_length=50, blank=True, null=True,
+                                      verbose_name='Специализация')
     # Relationsheeps custom reverse!
     user = models.ForeignKey(User, on_delete=models.PROTECT,
-                             related_name='appointment_as_user')
+                             related_name='appointment_as_user',
+                             blank=True, null=True)
     # Relationsheeps custom reverse!
     doctor = models.ForeignKey(User, on_delete=models.PROTECT,
-                               related_name='appointment_as_doctor')
+                               related_name='appointment_as_doctor',
+                               blank=True, null=True)
 
 
     def __str__(self):
