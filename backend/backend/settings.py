@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
 
     'users',
+    'diagnosise',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +59,9 @@ MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
+
 CORS_ORIGIN_ALLOW_ALL = True
+
 
 INTERNAL_IPS = [
     # ...
