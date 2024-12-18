@@ -8,7 +8,7 @@ class AppointmentForm(forms.ModelForm):
     first_name = forms.CharField(label='Имя', disabled=True,
                                  widget=forms.TextInput(attrs={'class': 'form-control'}))
     
-    last_name = forms.CharField(label='Фамилия', disabled=True,
+    last_name = forms.CharField(label='Фамилия', disabled=True, required=False,
                                 widget=forms.TextInput(attrs={'class': 'form-control'}))
     
     email = forms.CharField(label='Email', disabled=True,

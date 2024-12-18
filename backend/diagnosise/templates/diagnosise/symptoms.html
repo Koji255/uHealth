@@ -12,10 +12,12 @@
             <!-- {{ form.as_p }} -->
 
             <!-- <label for="symptoms" class="form-label">Symptoms</label> -->
-            <input class="form-control" type="text" name="symptoms" style="margin-left: -3rem; height: 3rem !important;" placeholder="Введите симптомы, затем активируйте AI ассистента">
+            <center><h3 style="margin-top: -1rem; margin-bottom: 1rem;">Ваши cимптомы:</h3></center>
 
-            <button style="border: none; background: none; cursor: pointer; position: absolute; margin: -3.4rem 47.3rem;">
-                <img src="{% static 'media/ai_button.svg' %}" alt="Button Image" style="width: 3.1rem; height: auto;">
+            <input class="form-control" type="text" name="symptoms" style="margin-left: 0rem; height: 3rem !important; padding-right: 3rem !important;" placeholder="Введите симптомы, затем активируйте AI ассистента">
+
+            <button style="border: none; background: none; cursor: pointer; position: absolute; margin: -2.6rem 47.2rem;">
+                <img src="{% static 'media/loupe.svg' %}" alt="Button Image" style="width: 1.7rem; height: auto;">
             </button>
         </form>
     </div>

@@ -135,7 +135,7 @@ class UserLoginForm(AuthenticationForm):
 
 class UserProfileForm(forms.ModelForm):
 
-    username = forms.CharField(label='Имя пользователя', required=True,
+    username = forms.CharField(label='Имя пользователя', required=False, initial='',
                                widget=forms.TextInput(attrs={'class': 'form-control'}))
     
     first_name = forms.CharField(label='Имя', required=True,
@@ -162,6 +162,7 @@ class UserProfileForm(forms.ModelForm):
                                    'placeholder': 'DD|MM|YY'
                                    }))
     
+
     
     class Meta:
         model = User
