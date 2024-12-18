@@ -5,7 +5,7 @@ from diagnosise.models import Diagnosis
 class TextInputForm(forms.Form):
     '''Form for user's health complaints'''
     symptoms = forms.CharField(max_length=250, empty_value=False, label=False,
-                               widget=forms.Textarea(attrs={'class': 'form-control'}))
+                               widget=forms.TextInput(attrs={'class': 'form-control'}))
     
 
 # class DiagnosiseSaveForm(forms.Form):

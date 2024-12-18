@@ -27,12 +27,12 @@ body {
 
 .nav-link[name="1"] {
     z-index: 5;
-    position: fixed;
+    position: absolute;
     margin-top: 0.3rem;
     margin-left: auto !important;
     margin-right: auto !important;
 
-    left: 46.4% !important;
+    left: 45% !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -132,3 +132,40 @@ p[name="index-description"] {
     background-color: #212122;
 }
 
+/* REGISTER */
+.form-control {
+    margin-bottom: 0.2rem;
+}
+
+.btn.btn-dark {
+    background-color: #2c3338 !important;
+    border: none !important;
+}
+
+.btn.btn-dark:hover {
+    background-color: #babbca !important; 
+    border: none !important;
+}
+
+/* PROFILE */
+
+a.data-change, button.data-change {
+    color: #808080;
+    text-decoration: none;
+}
+
+a.data-change:hover, button.data-change:hover {
+    color: #1d2225;
+}
+
+img[name="avatar"] {
+    z-index: -1;
+
+    margin: 2.3rem 24rem !important;
+
+    max-width: 15rem;
+    max-height: 15rem;
+
+    background-color: #d8d8d8;
+    border-radius: 30px;
+}

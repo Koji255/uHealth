@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect, redirect
 
 from django.contrib import auth
 from django.contrib.auth.views import PasswordChangeView
@@ -12,17 +12,22 @@ from users.forms import UserRegistrationForm, UserLoginForm, UserProfileForm
 # Views here
 def registration(request):
     """Registration view"""
-    if request.method == "POST":
-        form = UserRegistrationForm(data=request.POST)
+    if not request.user.is_authenticated:
+        if request.method == "POST":
+            form = UserRegistrationForm(data=request.POST)
 
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse("users:user_login"))
-        
+            if form.is_valid():
+                form.save()
+                
+                return HttpResponseRedirect(reverse("users:user_login"))
+            
+        else:
+            form = UserRegistrationForm()
+
+        return render(request, "users/registration.html", {"form": form})
+    
     else:
-        form = UserRegistrationForm()
-
-    return render(request, "users/registration.html", {"form": form})
+        return HttpResponseRedirect(reverse('index'))
 
 
 def login(request):
@@ -47,6 +52,7 @@ def login(request):
     return render(request, "users/login.html", context={"form": form})
 
 
+
 def profile(request):
     """Profile view"""
     if request.user.is_authenticated:
@@ -69,13 +75,16 @@ def profile(request):
     return HttpResponseRedirect(reverse("users:user_login"))
 
 
+
 def logout(request):
     """Logout view"""
     auth.logout(request)
 
     return HttpResponseRedirect(reverse("index"))
 
+
+
 class CustomPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
     """Password change View"""
     template_name = "users/change_password.html"
-    success_url = reverse_lazy("users:user_profile")
+    success_url = reverse_lazy("users:change_password_done")

@@ -1,14 +1,23 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block head %}
     <title>ai-help</title>
 {% endblock %}
 
 {% block body %}
-    <form class="custom-form" action="{% url 'diagnosise:ai_consultation' %}" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        
-        <button type="submit">Отправить</button>
-    </form>
+    <div class="form-container" style="display: flex; justify-content: center;">
+        <form class="custom-form" action="{% url 'diagnosise:ai_consultation' %}" method="post" style="margin: 35vh auto; width: 50rem; height: fit-content;">
+            {% csrf_token %}
+            <!-- {{ form.as_p }} -->
+
+            <!-- <label for="symptoms" class="form-label">Symptoms</label> -->
+            <input class="form-control" type="text" name="symptoms" style="margin-left: -3rem; height: 3rem !important;" placeholder="Введите симптомы, затем активируйте AI ассистента">
+
+            <button style="border: none; background: none; cursor: pointer; position: absolute; margin: -3.4rem 47.3rem;">
+                <img src="{% static 'media/ai_button.svg' %}" alt="Button Image" style="width: 3.1rem; height: auto;">
+            </button>
+        </form>
+    </div>
 {% endblock %}
+
