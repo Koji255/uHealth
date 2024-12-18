@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>register</title>
-</head>
-<body>
-    <form action="{% url 'users:user_registration' %}" method="post">
+{% extends "base.html" %}
+
+{% block head %}
+    <title>profile</title>
+{% endblock %}
+
+{% block body %}
+    <form action="{% url 'users:user_profile' %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-
+        
+        <a href="{% url 'users:user_change_password' %}">Изменить Пароль</a>
+        <a href="{% url 'users:user_logout' %}">Выйти из аккаунта</a>
+        
         <button type="submit">Отправить</button>
     </form>
-</body>
-</html>
+{% endblock %}

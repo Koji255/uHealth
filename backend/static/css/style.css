@@ -1,0 +1,134 @@
+body {
+    background-color: #ebebeb;
+}
+
+.navbar.navbar-expand-lg.bg-light {
+
+    margin-top: 1rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    padding-inline: 0.9rem;
+    
+    width: 70% !important;
+    height: 4rem;
+    
+    border-radius: 20px;
+    
+    background-color: #d8d8d8 !important;
+
+    /* display: flex; */
+    align-items: center; /* Центрирование по вертикали */
+}
+
+.nav-link {
+    position: absolute;
+}
+
+.nav-link[name="1"] {
+    z-index: 5;
+    position: fixed;
+    margin-top: 0.3rem;
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    left: 46.4% !important;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+      left: 30% !important;
+    }
+  }
+
+.nav-link[name="2"] {
+    position: absolute;
+    margin-top: -1.1rem;
+    margin-left: -11rem;
+    width: 10rem;
+}
+
+.nav-link[name="3"] {
+    position: absolute;
+    margin-top: -1.1rem;
+    margin-left: -3rem;
+    width: 10rem;
+}
+
+.nav-item.dropdown {
+    /* position: absolute; */
+    margin-top: -1.1rem;
+    margin-left: -6rem;
+    margin-right: -8rem;
+    width: 10rem;
+}
+
+.dropdown-menu {
+    margin-top: 2.3rem !important;
+    margin-left: -3rem !important;
+}
+
+.navbar-brand {
+    width: 15rem;
+}
+
+.input-group input {
+    background-color: #e8e8e8;
+    border: none;
+}
+
+.input-group .btn {
+    background-color: #e8e8e8;
+    border: none;
+}
+
+.navbar {
+    border-bottom: 1px solid #ddd;
+}
+
+.img-fluid {
+    position: absolute;
+    z-index: -1;
+
+    margin-top: -9rem;
+
+    width: 45rem;
+    height: 45rem;
+}
+
+hr[name="index-hr"] {
+    /* position: absolute; */
+    z-index: 1;
+
+    margin-top: 26rem;
+    width: 20%;
+}
+
+p[name="index-description"] {
+    position: absolute;
+    z-index: 2;
+
+    margin-top: 28rem;
+    padding-bottom: 6rem;
+
+    max-width: 35rem;
+
+    text-align: center
+}
+
+.btn-secondary.px-4.py-2.text-uppercase {
+    position: absolute;
+    z-index: 5;
+
+    margin-left: -6.5rem;
+    margin-top: 14rem;
+
+    background-color: #babbca;
+
+    border: none;
+}
+
+.btn-secondary.px-4.py-2.text-uppercase:hover {
+    background-color: #212122;
+}
+
