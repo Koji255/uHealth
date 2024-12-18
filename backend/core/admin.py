@@ -5,5 +5,5 @@ from core.models import Appointment
 @admin.register(Appointment)
 class DiagnosisAdmin(admin.ModelAdmin):
     readonly_fields = ('date_created',)
-    list_display = ('user', 'doctor', 'time', 'status')
+    list_display = ('user', 'doctor', 'time', 'status', 'date_created')
     list_filter = ('status', 'doctor', 'time')

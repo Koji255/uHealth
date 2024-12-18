@@ -39,6 +39,20 @@ body {
     body {
       left: 30% !important;
     }
+    img[name="avatar"] {
+        height: 0rem;
+        width: 0rem;
+    }
+}
+
+@media screen and (max-width: 1850px) {
+    body {
+      left: 30% !important;
+    }
+    img[name="avatar"] {
+        height: 0rem;
+        width: 0rem;
+    }
   }
 
 .nav-link[name="2"] {
@@ -170,6 +184,25 @@ img[name="avatar"] {
     border-radius: 30px;
 }
 
+
+.table.table-light.table-rounded {
+    border-radius: 5px;
+    overflow: hidden;
+    
+
+    max-width: 60vw !important;
+    margin-left: -15vw !important;
+
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.096);
+}
+
+td, th {
+    padding-inline: 1.5rem !important;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+
 /* RESULTS */
 .parsed-container {
     height: min-content;
@@ -203,4 +236,20 @@ img[name="avatar"] {
 
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+
+/* APPOINTMENT */
+#id_comment {
+    height: 15vh;
+    width: 60%;
+}
+
+img[name="doctor"] {
+    position: absolute;
+    z-index: -1;
+
+    max-width: 80vh;
+    max-height: 80vw;
+
+    margin: 3.4vh 55vw;
 }

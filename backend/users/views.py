@@ -8,6 +8,8 @@ from django.urls import reverse, reverse_lazy
 
 from users.forms import UserRegistrationForm, UserLoginForm, UserProfileForm
 
+from core.models import Appointment
+
 
 # Views here
 def registration(request):
@@ -69,8 +71,13 @@ def profile(request):
 
         else:
             form = UserProfileForm(instance=request.user)
+        
+        appointments = Appointment.objects.filter(user_id=request.user.pk).all().order_by('-date_created')
 
-        return render(request, "users/profile.html", {"form": form})
+        return render(request, "users/profile.html", context={
+            "form": form,
+            "appointments": appointments,
+            })
     
     return HttpResponseRedirect(reverse("users:user_login"))
 

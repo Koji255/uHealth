@@ -22,7 +22,7 @@ class AppointmentForm(forms.ModelForm):
                                      widget=forms.TextInput(attrs={'class': 'form-control'}))
     
     comment = forms.CharField(label='Комментарий', required=False,
-                              widget=forms.TextInput(attrs={'class': 'form-control'}))
+                              widget=forms.Textarea(attrs={'class': 'form-control'}))
 
     
 
