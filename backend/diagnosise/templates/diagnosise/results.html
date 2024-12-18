@@ -1,18 +1,45 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block head %}
-    <title>results</title>
+    <title>ai-answer</title>
+{% endblock %}
+<!-- Read comment by declaration -->
+{% block specialbody %}
+    <div class="header-container" style="position: absolute; justify-content: center;">
+        <h1 style="margin-top: 3rem !important; color: #171a1d; background: none; border: none; font-size:3rem; font-weight: 500;">
+            Возможные заболевания
+        </h1>
+
+        <center><hr style="width: 25vw;"></center>
+    </div>
+
+
+    <div class="form-containers" style="display: flex; justify-content: center; width: 68vw; margin-top: 12rem;">
+        <div class="parsed-container" style="margin-right: 2rem;">
+            <h3 class="answer-header">{{ disease_category.0 }}</h1>
+            <hr>
+            <p class="ai-answer-text">
+                {{ description.0 }}
+            </p>
+        </div>
+
+        <div class="parsed-container" style="margin-right: 2rem;">
+            <h3 class="answer-header">{{ disease_category.1 }}</h1>
+            <hr>
+            <p class="ai-answer-text">
+                {{ description.1 }}
+            </p>
+        </div>
+
+        <div class="parsed-container">
+            <h3 class="answer-header">{{ disease_category.2 }}</h1>
+            <hr>
+            <p class="ai-answer-text">
+                {{ description.2 }}
+            </p>
+        </div>
+        
+    </div>
 {% endblock %}
 
-{% block body %}
-    <h2>Disease Category:</h2>
-        {% for category in disease_category %}
-            <p>{{ category }}</p>
-        {% endfor %}
-
-    <h2>Description:</h2>
-        {% for desc in description %}
-            <p>{{ desc }}</p>
-            <br>
-        {% endfor %}
-{% endblock %}

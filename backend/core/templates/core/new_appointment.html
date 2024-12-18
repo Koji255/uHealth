@@ -1,14 +1,15 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block head %}
     <title>new-appointment</title>
 {% endblock %}
 
 {% block body %}
-    <form action="{% url 'core:new-appointment' %}" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-
-        <button type="submit">Отправить</button>
-    </form>
+        <form action="{% url 'core:new-appointment' %}" method="post" style="position: absolute; margin: 5rem 22rem; width: 40rem; padding-inline: 1.5rem; padding-top: 1rem; background-color: #ffffff; border-radius: 20px;">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
 {% endblock %}

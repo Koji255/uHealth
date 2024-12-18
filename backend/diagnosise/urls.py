@@ -6,6 +6,6 @@ app_name = "diagnosise"
 
 urlpatterns = [
     path('ai-health-consultation/', ai_consultation, name='ai_consultation'),
-    path('results/', TemplateView.as_view(template_name='results.html'),
+    path('ai-answer/', TemplateView.as_view(template_name='results.html'),
          name='results'),
 ]

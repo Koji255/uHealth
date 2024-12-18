@@ -15,6 +15,8 @@ class Appointment(models.Model):
 
     spezialisation = models.CharField(max_length=50, blank=True, null=True,
                                       verbose_name='Специализация')
+    
+    comment = models.TextField(blank=True, null=True, verbose_name='Комментарий')
     # Relationsheeps custom reverse!
     user = models.ForeignKey(User, on_delete=models.PROTECT,
                              related_name='appointment_as_user',

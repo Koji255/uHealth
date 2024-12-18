@@ -18,11 +18,14 @@ class AppointmentForm(forms.ModelForm):
                             widget=forms.NumberInput(attrs={'class': 'form-control'}),
                             disabled=False,)
     
-    specialization = forms.CharField(label='Специализация', required=False,
+    specialization = forms.CharField(label='Специализация врача', required=False,
                                      widget=forms.TextInput(attrs={'class': 'form-control'}))
+    
+    comment = forms.CharField(label='Комментарий', required=False,
+                              widget=forms.TextInput(attrs={'class': 'form-control'}))
 
     
 
     class Meta:
         model = Appointment
-        fields = ('first_name', 'last_name', 'email', 'phone', 'specialization',)
+        fields = ('first_name', 'last_name', 'email', 'phone', 'specialization', 'comment')

@@ -19,13 +19,16 @@ def ai_consultation(request):
         form = TextInputForm(data=request.POST)
 
         if form.is_valid():
-            symptoms = re.sub('[[{]}|@#$%^&*()]', '', str(form.cleaned_data['symptoms']))
+            symptoms = re.sub('[[{]}|@#$%^&*]', '', str(form.cleaned_data['symptoms']))
 
             ai_query = ai_request(symptoms)
 
             # Lists of values
             disease_category = ai_query['disease_category']
             description = ai_query['description']
+
+            # disease_category = ['Foo', 'Bar', 'Baz']
+            # description = ['FoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFoFo', 'BarBarBarBarBarBarBarBarBarBarBarBar', 'BazBazBazBazBazBazBazBazBazBazBazBazBazBaz']
 
             print(disease_category)
 
@@ -51,3 +54,7 @@ def ai_consultation(request):
     
     return render(request, 'diagnosise/symptoms.html', context={'form': form})
 
+
+# Possible to use TemplateView
+# class AIAnswerView(TemplateView):
+#     template_name = 'diagnosise/results.html'
