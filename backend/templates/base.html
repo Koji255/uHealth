@@ -19,12 +19,17 @@
         <nav class="navbar navbar-expand-lg bg-light justify-content-center">
             <div class="container-fluid">
                 
-                <a class="navbar-brand fw-bold" href="{% url 'index' %}">UHEALTH</a>
+                <a class="navbar-brand fw-bold" href="{% url 'index' %}" style="width: min-content;">UHEALTH</a>
 
-                <a class="nav-link text-uppercase" href="{% url 'core:new-appointment' %}" name="1">Запись к врачу</a>
-
+                
                 <ul class="navbar-nav">
+                    <!-- <center> -->
+                    <li class="nav-item" name="home">
+                        <a class="nav-link text-uppercase" href="{% url 'core:new-appointment' %}">Запись к врачу</a>
+                    </li>
+                    <!-- </center> -->
                     {% if not user.is_authenticated %}
+
                         <li class="nav-item">
                             <a class="nav-link text-uppercase" href="{% url 'users:signup' %}" name="2">Регистрация</a>
                         </li>

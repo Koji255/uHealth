@@ -37,10 +37,10 @@ class User(AbstractUser):
 
         super().save(*args, **kwargs)
         
-        if self.pk:
-            users_group = Group.objects.get(name="users")
+        # if self.pk:
+        #     users_group = Group.objects.get_or_create(name="users")
 
-            self.groups.set([users_group])
+        #     self.groups.set([users_group])
 
 
     class Meta:
