@@ -1,6 +1,6 @@
 from django.db import models
 
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, Group
 from django.contrib.auth.hashers import make_password
 
 ROLES = (
@@ -34,6 +34,11 @@ class User(AbstractUser):
             self.username = self.email
 
         super().save(*args, **kwargs)
+        
+        if self.pk:
+            users_group = Group.objects.get(name="users")
+
+            self.groups.set([users_group])
 
 
     class Meta:

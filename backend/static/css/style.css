@@ -4,6 +4,7 @@ body {
 
 .navbar.navbar-expand-lg.bg-light {
 
+
     margin-top: 1rem !important;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -56,7 +57,7 @@ body {
   }
 
 .nav-link[name="2"] {
-    position: absolute;
+    position: fixed;
     margin-top: -1.1rem;
     margin-left: -11rem;
     width: 10rem;

@@ -1,3 +1,8 @@
+# Permissions
+# Form number
+# Open AI live session
+# Email Validation
+
 from django.core.exceptions import ValidationError
 from django.db import models
 
