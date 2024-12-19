@@ -21,6 +21,8 @@ class User(AbstractUser):
 
     birthday = models.DateField(blank=True, null=True, verbose_name='Дата Рождения')
 
+    email_confirmed = models.BooleanField(default=False)
+
 
     def __str__(self):
         return self.username

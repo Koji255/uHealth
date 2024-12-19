@@ -159,9 +159,9 @@ class UserProfileForm(forms.ModelForm):
                             #    validators=[RegexValidator(regex=r'^\d{4}-0([1-9]|1[0-2]){2}-(0[1-9]|1[0-31]|2[0-31]|3[031]){2}$', message="Введите правильную дату рождения.")],
                                widget=forms.DateInput(attrs={
                                    'class': 'form-control',
-                                   'placeholder': 'DD|MM|YY'
+                                   'placeholder': 'DD|MM|YYYY'
                                    }))
-    
+
 
     
     class Meta:

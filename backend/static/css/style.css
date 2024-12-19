@@ -254,3 +254,16 @@ img[name="doctor"] {
 
     margin: 3.4vh 55vw;
 }
+
+/* EMAIL CONFIRMED */
+a[name='home'] {
+
+    font-size:larger;
+
+    color: #212122;
+    text-decoration: none;
+}
+
+a[name='home']:hover {
+    color:#808080
+}

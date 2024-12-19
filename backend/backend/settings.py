@@ -113,6 +113,7 @@ DATABASES = {
 }
 
 AUTH_USER_MODEL = 'users.User'
+LOGIN_URL = '/users/login/'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -133,12 +134,13 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Setup google mail service (different email host)
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = "smtp.gmail.com"
-# EMAIL_HOST_USER = 'koji25twink@gmail.com'
-# EMAIL_HOST_PASSWORD = 'qdfgbwcyublqpler'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'koji25twink@gmail.com'
+EMAIL_HOST_PASSWORD = 'usbf almh wiia cust'
+DEFAULT_FROM_EMAIL = 'uHealth'
 
 
 # Internationalization

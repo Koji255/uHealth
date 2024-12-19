@@ -1,0 +1,22 @@
+{% load static %}
+
+{% autoescape off %}
+<p>Зравствуйте {{ user.username }},<p>
+
+<br>
+
+<p>Пожалуйста перейдите по ссылке ниже, чтобы активировать свой аккаунт:</p>
+
+<br>
+
+{% block reset_link %}
+    <a href="http://{{ domain }}{% url 'users:activate' uidb64=uid token=token %}">Активировать</a>
+{% endblock %}
+
+<br>
+
+<p>Если вы не регистрировались на нашем сайте, пожалуйста проигнорируйте это сообщение.</p>
+
+<p>С уважением,</p>
+<p>uHealth</p>
+{% endautoescape %}

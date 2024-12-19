@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>activation-email-sent</title>
+{% endblock %}
+
+<!-- {% block content %}
+    {% if user.is_authenticated %}
+    <p>Добро пожаловать на uHealth, {{ user.username }}! You have Successfully Activated the Account and Logged in!</p>
+    {% endif %}
+{% endblock %} -->
+
+{% block specialbody %}
+  <h2 style="position: absolute; margin: 23vh auto;">Добро пожаловать на uHealth, {{ user.username }}!</h2>
+  <center>
+    <p style="margin-top: 28vh; width: 40vw; word-wrap: break-word;">Вы активировали и вошли в аккаунт</p>
+    <a href="{% url 'index' %}" name="home">Вернуться на Главную</a>
+</center>
+{% endblock %}

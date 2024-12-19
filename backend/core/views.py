@@ -10,7 +10,7 @@ class CreateAppointmentView(LoginRequiredMixin, CreateView):
     form_class = AppointmentForm
     template_name = 'core/new_appointment.html'
     success_url = reverse_lazy('index')
-    login_url = reverse_lazy('users:user_login')
+    login_url = reverse_lazy('users:signin')
 
     def get_initial(self):
         # Initial values in form
