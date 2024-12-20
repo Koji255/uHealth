@@ -1,12 +1,8 @@
-# Permissions
-# Form number
-# Open AI live session
-# Email Validation
-
 from django.core.exceptions import ValidationError
 from django.db import models
 
 from users.models import User
+
 
 
 STATUSES = (
@@ -14,6 +10,50 @@ STATUSES = (
     ('исполнение', 'исполнение'),
     ('закрыто', 'закрыто'),
 )
+
+SPECIALIZATIONS = (
+    ('не известно', 'не известно'),
+    ('терапевт', 'терапевт'),
+    ('педиатр', 'педиатр'),
+    ('отоларинголог', 'отоларинголог'),
+    ('хирург', 'хирург'),
+    ('кардиолог', 'кардиолог'),
+    ('невролог', 'невролог'),
+    ('эндокринолог', 'эндокринолог'),
+    ('офтальмолог', 'офтальмолог'),
+    ('дерматолог', 'дерматолог'),
+    ('психиатр', 'психиатр'),
+    ('психотерапевт', 'психотерапевт'),
+    ('стоматолог', 'стоматолог'),
+    ('уролог', 'уролог'),
+    ('гинеколог', 'гинеколог'),
+    ('онколог', 'онколог'),
+    ('реаниматолог', 'реаниматолог'),
+    ('анестезиолог', 'анестезиолог'),
+    ('гематолог', 'гематолог'),
+    ('гастроэнтеролог', 'гастроэнтеролог'),
+    ('инфекционист', 'инфекционист'),
+    ('ревматолог', 'ревматолог'),
+    ('пульмонолог', 'пульмонолог'),
+    ('нефролог', 'нефролог'),
+    ('аллерголог', 'аллерголог'),
+    ('иммунолог', 'иммунолог'),
+    ('маммолог', 'маммолог'),
+    ('травматолог', 'травматолог'),
+    ('флеболог', 'флеболог'),
+    ('профтолог', 'профтолог'),
+    ('венеролог', 'венеролог'),
+    ('нейрохирург', 'нейрохирург'),
+    ('геронтолог', 'геронтолог'),
+    ('аритмолог', 'аритмолог'),
+    ('специалист по УЗИ', 'специалист по УЗИ'),
+    ('физиотерапевт', 'физиотерапевт'),
+    ('диетолог', 'диетолог'),
+    ('логопед', 'логопед'),
+    ('подолог', 'подолог'),
+    ('ортопед', 'ортопед'),
+)
+
 
 # Create your models here.
 class Appointment(models.Model):
@@ -25,7 +65,8 @@ class Appointment(models.Model):
     
     date_created = models.DateTimeField(auto_now_add=True, verbose_name='Дата Создания')
 
-    spezialisation = models.CharField(max_length=50, blank=True, null=True,
+    specialization = models.CharField(max_length=50, default='не известно',
+                                      choices=SPECIALIZATIONS,
                                       verbose_name='Специализация')
     
     comment = models.TextField(blank=True, null=True, verbose_name='Комментарий')
@@ -42,6 +83,15 @@ class Appointment(models.Model):
     def __str__(self):
         return f'Appointment with {self.doctor} by {self.user} at {self.time}'
     
+    
+    def save(self, *args, **kwargs):
+        comment = self.comment
+        
+        if len(comment) > 55:
+            self.comment = f'{comment[:56]}...'
+
+        super().save(*args, **kwargs)
+
 
     class Meta:
         verbose_name = 'Заявление на прием'

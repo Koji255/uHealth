@@ -26,6 +26,7 @@ class CreateAppointmentView(LoginRequiredMixin, CreateView):
 
         return initial
     
+    
     def form_valid(self, form):
         # Connection with current session user
         form.instance.user = self.request.user

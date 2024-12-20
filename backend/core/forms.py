@@ -2,6 +2,8 @@ from django import forms
 
 from .models import User, Appointment
 
+from core.models import SPECIALIZATIONS
+
 
 class AppointmentForm(forms.ModelForm):
 
@@ -18,8 +20,12 @@ class AppointmentForm(forms.ModelForm):
                             widget=forms.NumberInput(attrs={'class': 'form-control'}),
                             disabled=False,)
     
-    specialization = forms.CharField(label='Специализация врача', required=False,
-                                     widget=forms.TextInput(attrs={'class': 'form-control'}))
+    # specialization = forms.CharField(label='Специализация врача', required=False,
+    #                                  widget=forms.TextInput(attrs={'class': 'form-control'}))
+
+    specialization = forms.ChoiceField(label='Специализация врача',
+                                       choices=SPECIALIZATIONS,
+                                       widget=forms.Select(attrs={'class': 'form-select'}),)
     
     comment = forms.CharField(label='Комментарий', required=False,
                               widget=forms.Textarea(attrs={'class': 'form-control'}))
