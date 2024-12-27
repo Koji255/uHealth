@@ -27,9 +27,9 @@
             {{ form.as_p }}
 
             <!-- <button type="submit" class="btn btn-dark" style="border-radius: 15px; background-color: #2c3338; margin-left: 23rem !important">Подтвердить</button> -->
-            <a type="button" class="data-change" style="position: absolute; background: none; border: none;">Изменить информацию</a>
-            <button type="submit" class="data-change" style="position: absolute; border: none;">Изменить информацию</button>
-            <a href="{% url 'users:user_change_password' %}" class="data-change" style=" text-decoration: none; margin-left: 22rem !important;">Изменить пароль</a>
+            <!-- <a type="button" class="data-change" style="position: absolute; background: none; border: none;">Изменить информацию</a> -->
+            <button type="submit" class="data-change" style="position: absolute; border: none; background: none;">Confirm Changes</button>
+            <a href="{% url 'users:user_change_password' %}" class="data-change" style=" text-decoration: none; margin-left: 22rem !important;">Change Password</a>
 
             </div>
 
@@ -55,17 +55,17 @@
             
         </form>
 
-        <center style="margin-top: 6rem"><h3>История посещений</h3></center>
+        <center style="margin-top: 6rem"><h3>Appointments history</h3></center>
 
         <div class="history-container" style="position: absolute; margin: 1rem auto;">
             <table class="table table-light table-rounded" style="width: 60vw; border-radius: 20px;">
                 <thead>
                     <tr>
-                    <th scope="col">Дата создания</th>
-                    <th scope="col">Статус</th>
-                    <th scope="col">Специализация</th>
-                    <th scope="col">Время посещения</th>
-                    <th scope="col">Комментарий</th>
+                    <th scope="col">Date created</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Specialization</th>
+                    <th scope="col">Appointment time</th>
+                    <th scope="col">Comment</th>
                     </tr>
                 </thead>
                 <tbody>

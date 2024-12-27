@@ -7,7 +7,7 @@
 {% block body %}
     <center>
         <h1 style="margin-top: 9rem !important; color: #171a1d; background: none; border: none; font-size:3rem; font-weight: 500;">
-            Вход
+            Sign In
         </h1>
 
         <hr style="width: 12rem;">
@@ -20,7 +20,7 @@
 
             {{ form.as_p }}
 
-            <button type="submit" class="btn btn-dark" style="border-radius: 15px; background-color: #2c3338; margin-left: 23rem !important">Подтвердить</button>
+            <button type="submit" class="btn btn-dark" style="border-radius: 15px; background-color: #2c3338; margin-left: 26.5rem !important">Sign In</button>
 
             </div>
 
@@ -47,8 +47,8 @@
         </form>
     </div>
     <center>
-        <p style="padding-top: 0rem; margin-bottom: 0.3rem;">Нету аккаунта?</p>
-        <a href="{% url 'users:signup' %}" style="color: black; text-decoration: none;">Зарегестрироваться</a>
+        <p style="padding-top: 0rem; margin-bottom: 0.3rem;">No account?</p>
+        <a href="{% url 'users:signup' %}" style="color: black; text-decoration: none;">Sign Up</a>
     </center>
 
 {% endblock %}

@@ -11,13 +11,13 @@ from users.models import User
 
 class UserRegistrationForm(UserCreationForm):
     
-    username = forms.CharField(label='Имя пользователя',
+    username = forms.CharField(label='Username',
                                max_length=50,
                                required=True,
                                widget=forms.TextInput(attrs={
                                    'class': 'form-control',
                                    'type': 'text',
-                                   'placeholder': 'Логин',
+                                   'placeholder': 'Username',
                                    }))
     
     email = forms.EmailField(label='Email',
@@ -28,11 +28,11 @@ class UserRegistrationForm(UserCreationForm):
                                    'placeholder': 'example@yandex.ru',
                                    }))
     
-    phone = forms.CharField(label='Номер телефона',
-                            help_text='(необязательно)',
+    phone = forms.CharField(label='Phone',
+                            help_text='(optional)',
                             required=False,
                             max_length=15,
-                            validators=[RegexValidator(regex=r'^(\+7|8)?\d{10}$', message="Введите правильный номер телефона.")],
+                            validators=[RegexValidator(regex=r'^(\+7|8)?\d{10}$', message="Enter a valid phone number.")],
                             widget=forms.TextInput(attrs={
                                    'class': 'form-control',
                                    'type': 'tel',
@@ -40,46 +40,45 @@ class UserRegistrationForm(UserCreationForm):
                                    'pattern': '[0-9\ ]+',
                                    }))
     
-    first_name = forms.CharField(label='Персональные данные',
+    first_name = forms.CharField(label='First Name',
                                  required=True,
                                  widget=forms.TextInput(attrs={
                                    'class': 'form-control',
                                    'type': 'text',
-                                   'placeholder': 'Имя',
+                                   'placeholder': 'First Name',
                                    }))
     
     last_name = forms.CharField(label=False,
-                                help_text='(необязательно)',
+                                help_text='(optional)',
                                 required=False,
                                 widget=forms.TextInput(attrs={
                                    'class': 'form-control',
                                    'type': 'text',
-                                   'placeholder': 'Фамилия',
+                                   'placeholder': 'Last Name',
                                    }))
     
-    password1 = forms.CharField(label='Пароль', required=True,
+    password1 = forms.CharField(label='Password', required=True,
         error_messages={
-        'required': 'Пароль обязателен.',
-        'min_length': 'Пароль должен содержать не менее 8 символов.',
-        'max_length': 'Пароль не должен превышать 128 символов.'
+        'required': 'Password is required.',
+        'min_length': 'Password must be at least 8 characters long.',
+        'max_length': 'Password cannot exceed 128 characters.',
         },
-
         widget=forms.PasswordInput(attrs={
             'class': 'form-control',
             'type': 'password',
-            'placeholder': 'Пароль',
+            'placeholder': 'Password',
         })
     )
 
     password2 = forms.CharField(label=False, required=True,
         error_messages={
-        'required': 'Подтвердите пароль.'
+        'required': 'Confirm your password.'
         },
 
         widget=forms.PasswordInput(attrs={
             'class': 'form-control',
             'type': 'password',
-            'placeholder': 'Подтверждение пароля'
+            'placeholder': 'Confirm Password'
         }),
     )
 
@@ -93,7 +92,7 @@ class UserRegistrationForm(UserCreationForm):
         phone = self.cleaned_data.get('phone')
         
         if phone and not re.match(r'^[+]?[\d\s-]+$', phone):
-            raise ValidationError('Некорректный формат номера телефона.')
+            raise ValidationError('Invalid phone number format.')
         
         return phone
 
@@ -101,11 +100,11 @@ class UserRegistrationForm(UserCreationForm):
 
 class UserLoginForm(AuthenticationForm):
     
-    username = forms.CharField(label='Имя пользователя',
+    username = forms.CharField(label='Username',
                                required=True,
                                widget=forms.TextInput(attrs={'class': 'form-control'}))
     
-    password = forms.CharField(label='Пароль',
+    password = forms.CharField(label='Password',
                                required=True,
                                widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
@@ -117,7 +116,7 @@ class UserLoginForm(AuthenticationForm):
     def clean_username(self):
         username = self.cleaned_data.get('username')
         if ' ' in username:
-            raise ValidationError('Имя пользователя не должно содержать пробелов.')
+            raise ValidationError('Username cannot contain spaces.')
         return username
 
     # Password Validation
@@ -127,7 +126,7 @@ class UserLoginForm(AuthenticationForm):
         password2 = cleaned_data.get('password2')
 
         if password1 and password2 and password1 != password2:
-            raise ValidationError('Пароли не совпадают.')
+            raise ValidationError('Passwords do not match.')
         
         return cleaned_data
 
@@ -135,28 +134,27 @@ class UserLoginForm(AuthenticationForm):
 
 class UserProfileForm(forms.ModelForm):
 
-    username = forms.CharField(label='Имя пользователя', required=False, initial='',
+    username = forms.CharField(label='Username', required=False, initial='',
                                widget=forms.TextInput(attrs={'class': 'form-control'}))
     
-    first_name = forms.CharField(label='Имя', required=True,
+    first_name = forms.CharField(label='First Name', required=True,
                                  widget=forms.TextInput(attrs={'class': 'form-control'}))
     
-    last_name = forms.CharField(label='Фамилия', required=False,
+    last_name = forms.CharField(label='Last Name', required=False,
                                 widget=forms.TextInput(attrs={'class': 'form-control'}))
     
     email = forms.CharField(label='Email', disabled=True, 
                              widget=forms.EmailInput(attrs={'class': 'form-control', 'type': 'email'}))
     
-    phone = forms.CharField(label='Номер телефона', required=False,
-                            validators=[RegexValidator(regex=r'^(\+7|8)?\d{10}$', message="Введите правильный номер телефона.")],
+    phone = forms.CharField(label='Phone Number', required=False,
+                            validators=[RegexValidator(regex=r'^(\+7|8)?\d{10}$', message='Enter a valid phone number.')],
                             widget=forms.TextInput(attrs={
                                 'class': 'form-control', 
                                 # 'type': 'tel',
                                 'placeholder': '81234567890',
                                 }))
     
-    birthday = forms.DateField(label='Дата рождения', required=False, localize='Ru',
-                            #    validators=[RegexValidator(regex=r'^\d{4}-0([1-9]|1[0-2]){2}-(0[1-9]|1[0-31]|2[0-31]|3[031]){2}$', message="Введите правильную дату рождения.")],
+    birthday = forms.DateField(label='Birthday', required=False, localize='Ru',
                                widget=forms.DateInput(attrs={
                                    'class': 'form-control',
                                    'placeholder': 'DD|MM|YYYY'

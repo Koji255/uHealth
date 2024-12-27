@@ -20,41 +20,46 @@
             <div class="container-fluid">
                 
                 <a class="navbar-brand fw-bold" href="{% url 'index' %}" style="width: min-content;">UHEALTH</a>
-
+        
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 
-                <ul class="navbar-nav">
-                    <!-- <center> -->
-                    <li class="nav-item" name="home">
-                        <a class="nav-link text-uppercase" href="{% url 'core:new-appointment' %}">Запись к врачу</a>
-                    </li>
-                    <!-- </center> -->
-                    {% if not user.is_authenticated %}
-
-                        <li class="nav-item">
-                            <a class="nav-link text-uppercase" href="{% url 'users:signup' %}" name="2">Регистрация</a>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item" name="appointment">
+                            <a class="nav-link text-uppercase" href="{% url 'core:new-appointment' %}">New Appointment</a>
                         </li>
-            
-                        <li class="nav-item">
-                            <a class="nav-link text-uppercase" href="{% url 'users:signin' %}" name="3">Вход</a>
-                        </li>
-                    {% else %}
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Аккаунт
-                            </a>
-                            <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{% url 'users:user_profile' %}">Профиль</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="{% url 'users:user_logout' %}">Выход</a></li>
-                                </ul>
+                        {% if not user.is_authenticated %}
+        
+                            <li class="nav-item">
+                                <a class="nav-link text-uppercase" href="{% url 'users:signup' %}" name="2">Sign Up</a>
                             </li>
-                    {% endif %}
-
-                    {% block navbar %}
-                    {% endblock %}
-                </ul>
+                
+                            <li class="nav-item">
+                                <a class="nav-link text-uppercase" href="{% url 'users:signin' %}" name="3">Sign In</a>
+                            </li>
+                            
+                        {% else %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Account
+                                </a>
+                                <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'users:user_profile' %}">Profile</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="{% url 'users:user_logout' %}">Sign Out</a></li>
+                                    </ul>
+                                </li>
+                        {% endif %}
+        
+                        {% block navbar %}
+                        {% endblock %}
+                    </ul>
+                </div>
             </div>
         </nav>
+        
 
         <!-- This container created for escaping consequences of conflicts with styles while 
          I don't implement it to all templates -->

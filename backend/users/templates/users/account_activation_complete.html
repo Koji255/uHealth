@@ -6,14 +6,14 @@
 
 <!-- {% block content %}
     {% if user.is_authenticated %}
-    <p>Добро пожаловать на uHealth, {{ user.username }}! You have Successfully Activated the Account and Logged in!</p>
+    <p>Welcome to uHealth, {{ user.username }}! You have Successfully Activated the Account and Logged in!</p>
     {% endif %}
 {% endblock %} -->
 
 {% block specialbody %}
-  <h2 style="position: absolute; margin: 23vh auto;">Добро пожаловать на uHealth, {{ user.username }}!</h2>
+  <h2 style="position: absolute; margin: 23vh auto;">Welcome to uHealth, {{ user.username }}!</h2>
   <center>
-    <p style="margin-top: 28vh; width: 40vw; word-wrap: break-word;">Вы успешно активировали свой аккаунт.</p>
-    <a href="{% url 'index' %}" name="home">Вернуться на Главную</a>
+    <p style="margin-top: 28vh; width: 40vw; word-wrap: break-word;">You have successfully activated your account.</p>
+    <a href="{% url 'index' %}" name="home">Back to Home</a>
 </center>
 {% endblock %}

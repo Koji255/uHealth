@@ -3,23 +3,23 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, Group
 from django.contrib.auth.hashers import make_password
 
+
 ROLES = (
     ('user', 'user'),
     ('doctor', 'doctor'),
 )
 
 
-
 # Create your models here.
 class User(AbstractUser):
 
-    role = models.CharField(max_length=30, default='user', verbose_name='Роль',
+    role = models.CharField(max_length=30, default='user', verbose_name='Role',
                             choices=ROLES)
 
     phone = models.CharField(max_length=15, blank=True, null=True, unique=False,
-                             verbose_name='Номер Телефона')
+                             verbose_name='Phone Number')
 
-    birthday = models.DateField(blank=True, null=True, verbose_name='Дата Рождения')
+    birthday = models.DateField(blank=True, null=True, verbose_name='Birthday')
 
     email_confirmed = models.BooleanField(default=False)
 
@@ -44,4 +44,6 @@ class User(AbstractUser):
 
 
     class Meta:
-        verbose_name, verbose_name_plural = 'Пользователь', 'Пользователи'
+
+        verbose_name= 'User'
+        verbose_name_plural = 'Users'

@@ -1,0 +1,150 @@
+/* Основной фон страницы */
+body {
+    background-color: #ebebeb;
+}
+
+/* Стили для Navbar */
+.navbar.navbar-expand-lg.bg-light {
+    margin: 1rem auto !important;
+    padding-inline: 0.9rem;
+    width: 70% !important;
+    height: 4rem;
+    border-radius: 20px;
+    background-color: #d8d8d8 !important;
+    align-items: center; /* Центрирование элементов по вертикали */
+}
+
+/* Мобильная адаптация */
+@media screen and (max-width: 768px) {
+    body {
+        left: 0 !important; /* Устранение неестественного смещения */
+    }
+    img[name="avatar"] {
+        display: none; /* Убираем изображение на мобильных устройствах */
+    }
+}
+
+/* Стили навигации */
+.nav-link {
+    position: relative;
+}
+
+.nav-item[name="home"] {
+    position: absolute !important;
+    top: 0.9rem;
+    left: 50%; /* Центрирование */
+    transform: translateX(-50%);
+    z-index: 5;
+    width: 10rem;
+}
+
+.nav-item.dropdown {
+    margin-top: -1.2rem;
+    width: auto;
+}
+
+.dropdown-menu {
+    margin-top: 2.3rem !important;
+}
+
+.navbar {
+    width: 70%;
+    height: 4rem;
+    margin: 1rem auto;
+    border-radius: 20px;
+    background-color: #d8d8d8 !important;
+}
+
+.navbar-brand {
+    margin-right: auto; /* Логотип слева */
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav .nav-link {
+    text-align: center;
+    padding: 0.5rem 1rem;
+}
+
+.mx-auto {
+    display: flex;
+    justify-content: center;
+    flex: 1; /* Расположение "DOCTOR APPOINTMENT" строго по центру */
+}
+
+.ms-auto {
+    margin-left: auto; /* Элементы справа */
+}
+
+.navbar-nav.ms-auto .nav-link {
+    text-align: end;
+}
+
+.navbar-nav.ms-auto {
+    display: flex;
+    gap: 1rem; /* Расстояние между элементами справа */
+}
+
+
+/* Стили кнопок */
+.btn-secondary.px-4.py-2.text-uppercase {
+    margin: 14rem auto !important;
+    background-color: #babbca;
+    border: none;
+}
+
+.btn-secondary.px-4.py-2.text-uppercase:hover {
+    background-color: #212122;
+}
+
+/* Поля ввода и кнопки */
+.input-group input {
+    background-color: #e8e8e8;
+    border: none;
+}
+
+.input-group .btn {
+    background-color: #e8e8e8;
+    border: none;
+}
+
+/* Стили для таблиц */
+.table.table-light.table-rounded {
+    border-radius: 5px;
+    overflow: hidden;
+    max-width: 80%; /* Адаптивная ширина */
+    margin: 0 auto;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.096);
+}
+
+td, th {
+    padding: 1rem 1.5rem !important;
+}
+
+/* Результаты */
+.parsed-container {
+    width: 100%; /* Делаем блок адаптивным */
+    border-radius: 15px;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.253);
+}
+
+.ai-answer-text {
+    padding: 1.5rem;
+    word-wrap: break-word; 
+    white-space: normal;
+}
+
+/* Вспомогательные классы */
+a[name='home'] {
+    font-size: larger;
+    color: #212122;
+    text-decoration: none;
+}
+
+a[name='home']:hover {
+    color: #808080;
+}
