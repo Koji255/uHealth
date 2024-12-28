@@ -154,10 +154,10 @@ class UserProfileForm(forms.ModelForm):
                                 'placeholder': '81234567890',
                                 }))
     
-    birthday = forms.DateField(label='Birthday', required=False, localize='Ru',
+    birthday = forms.DateField(label='Birthday', required=False, localize=True,
                                widget=forms.DateInput(attrs={
                                    'class': 'form-control',
-                                   'placeholder': 'DD|MM|YYYY'
+                                   'placeholder': 'YYYY|MM|DD'
                                    }))
 
 

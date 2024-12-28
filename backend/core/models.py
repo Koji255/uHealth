@@ -88,7 +88,7 @@ class Appointment(models.Model):
         comment = self.comment
         
         if len(comment) > 55:
-            self.comment = f'{comment[:56]}...'
+            self.comment = f'{comment[:43]}...'
 
         super().save(*args, **kwargs)
 

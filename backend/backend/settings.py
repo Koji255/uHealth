@@ -148,7 +148,7 @@ DEFAULT_FROM_EMAIL = 'uHealth'
 
 LANGUAGE_CODE = 'en'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 

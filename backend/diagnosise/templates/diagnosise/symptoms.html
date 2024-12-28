@@ -12,19 +12,22 @@
             <!-- {{ form.as_p }} -->
 
             <!-- <label for="symptoms" class="form-label">Symptoms</label> -->
-            <center><h3 style="margin-top: -1rem; margin-bottom: 1rem;">Ваши cимптомы:</h3></center>
+            <center><h3 style="margin-top: -1rem; margin-bottom: 1rem;">Your Symptoms:</h3></center>
 
-            <input class="form-control" type="text" name="symptoms" style="margin-left: 0rem; height: 3rem !important; padding-right: 3rem !important;" placeholder="Введите симптомы, затем активируйте AI ассистента">
+            <input class="form-control" type="text" name="symptoms" style="margin-left: 0rem; height: 3rem !important; padding-right: 3rem !important;" placeholder="Enter your symptoms, then activate the AI assistant">
 
-            <button style="border: none; background: none; cursor: pointer; position: absolute; margin: -2.6rem 47.2rem;">
-                <img src="{% static 'media/loupe.svg' %}" alt="Button Image" style="width: 1.7rem; height: auto;">
+            <button style="border: none; background: none; cursor: pointer; position: absolute; margin: -2.5rem 47.2rem;">
+                <img src="{% static 'media/loupe.svg' %}" alt="Button Image" style="width: 1.55rem; height: auto;">
             </button>
 
-            <p style="margin: 0.6rem 0.4rem; font-size: normal;">Искусственный интеллект проанализирует ваши данные, после чего на их основе подготовит сводку из 3-х наиболее вероятных заболеваний.</p>
-                <p style="position: fixed; bottom: 0rem; text-align: center; width: 41vw; font-size: smaller;">    
-                Нейронная сеть, используемая в этом приложении, не является медицинским специалистом. Она предоставляет результаты анализа симптомов на основе обученных данных, но не может заменить профессиональную медицинскую консультацию. Если у вас есть жалобы на здоровье, настоятельно рекомендуется обратиться к квалифицированному врачу для получения точного диагноза и соответствующего лечения.
-                Частота постановки верных диагнозов находиться на отметке 73%.<br>
-                </p>
+            <p style="margin: 0.6rem 0.7rem; font-size: medium;">
+                The artificial intelligence will analyze your data and then prepare a summary of the 3 most likely diseases based on it.
+            </p>
+                
+            <p style="position: fixed; bottom: 0rem; text-align: center; width: 41vw; font-size: smaller;">
+            The neural network used in this application is not a medical professional. It provides symptom analysis results based on trained data but cannot replace professional medical consultation. If you have health complaints, it is strongly recommended to consult a qualified doctor for an accurate diagnosis and appropriate treatment. The accuracy rate for correct diagnoses is 73%.<br>
+            </p>
+
         </form>
     </div>
 {% endblock %}

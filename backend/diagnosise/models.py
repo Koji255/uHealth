@@ -6,16 +6,16 @@ from users.models import User
 class Diagnosis(models.Model):
 
     symptoms = models.CharField(max_length=250, blank=False, null=False,
-                                verbose_name='Симптомы')
+                                verbose_name='Symptoms')
     
     disease_category = models.CharField(max_length=250,
-                                        verbose_name='Категория Заболевания')
+                                        verbose_name='Disease Category')
     
     description = models.TextField(editable=False, 
-                                   verbose_name='Пояснение от ИИ')
+                                   verbose_name='AI Explanation')
     
     date_created = models.DateTimeField(auto_now_add=True,
-                                        verbose_name='Дата Создания')
+                                        verbose_name='Date Created')
     
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
@@ -25,4 +25,5 @@ class Diagnosis(models.Model):
     
 
     class Meta:
-        verbose_name, verbose_name_plural = 'Диагноз от ИИ', 'Диагнозы от ИИ'
+        verbose_name = "AI's Diagnosis"
+        verbose_name_plural = "AI's Diagnoses"
