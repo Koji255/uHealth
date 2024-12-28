@@ -7,27 +7,27 @@ from core.models import SPECIALIZATIONS
 
 class AppointmentForm(forms.ModelForm):
 
-    first_name = forms.CharField(label='Имя', disabled=True,
+    first_name = forms.CharField(label='First Name', disabled=True,
                                  widget=forms.TextInput(attrs={'class': 'form-control'}))
     
-    last_name = forms.CharField(label='Фамилия', disabled=True, required=False,
+    last_name = forms.CharField(label='Last Name', disabled=True, required=False,
                                 widget=forms.TextInput(attrs={'class': 'form-control'}))
     
     email = forms.CharField(label='Email', disabled=True,
                              widget=forms.TextInput(attrs={'class': 'form-control'}))
     
-    phone = forms.CharField(label='Номер телефона', required=False, empty_value=True,
+    phone = forms.CharField(label='Phone Number', required=False, empty_value=True,
                             widget=forms.NumberInput(attrs={'class': 'form-control'}),
                             disabled=False,)
     
     # specialization = forms.CharField(label='Специализация врача', required=False,
     #                                  widget=forms.TextInput(attrs={'class': 'form-control'}))
 
-    specialization = forms.ChoiceField(label='Специализация врача',
+    specialization = forms.ChoiceField(label='Medical Specialization',
                                        choices=SPECIALIZATIONS,
                                        widget=forms.Select(attrs={'class': 'form-select'}),)
     
-    comment = forms.CharField(label='Комментарий', required=False,
+    comment = forms.CharField(label='Comment', required=False,
                               widget=forms.Textarea(attrs={'class': 'form-control'}))
 
     

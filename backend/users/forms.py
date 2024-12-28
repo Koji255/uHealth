@@ -134,7 +134,7 @@ class UserLoginForm(AuthenticationForm):
 
 class UserProfileForm(forms.ModelForm):
 
-    username = forms.CharField(label='Username', required=False, initial='',
+    username = forms.CharField(label='Username', required=True, initial='',
                                widget=forms.TextInput(attrs={'class': 'form-control'}))
     
     first_name = forms.CharField(label='First Name', required=True,

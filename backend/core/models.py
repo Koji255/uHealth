@@ -6,52 +6,52 @@ from users.models import User
 
 
 STATUSES = (
-    ('ожидание', 'ожидание'),
-    ('исполнение', 'исполнение'),
-    ('закрыто', 'закрыто'),
+    ('pending', 'pending'),
+    ('in progress', 'in progress'),
+    ('closed', 'closed'),
 )
 
 SPECIALIZATIONS = (
-    ('не известно', 'не известно'),
-    ('терапевт', 'терапевт'),
-    ('педиатр', 'педиатр'),
-    ('отоларинголог', 'отоларинголог'),
-    ('хирург', 'хирург'),
-    ('кардиолог', 'кардиолог'),
-    ('невролог', 'невролог'),
-    ('эндокринолог', 'эндокринолог'),
-    ('офтальмолог', 'офтальмолог'),
-    ('дерматолог', 'дерматолог'),
-    ('психиатр', 'психиатр'),
-    ('психотерапевт', 'психотерапевт'),
-    ('стоматолог', 'стоматолог'),
-    ('уролог', 'уролог'),
-    ('гинеколог', 'гинеколог'),
-    ('онколог', 'онколог'),
-    ('реаниматолог', 'реаниматолог'),
-    ('анестезиолог', 'анестезиолог'),
-    ('гематолог', 'гематолог'),
-    ('гастроэнтеролог', 'гастроэнтеролог'),
-    ('инфекционист', 'инфекционист'),
-    ('ревматолог', 'ревматолог'),
-    ('пульмонолог', 'пульмонолог'),
-    ('нефролог', 'нефролог'),
-    ('аллерголог', 'аллерголог'),
-    ('иммунолог', 'иммунолог'),
-    ('маммолог', 'маммолог'),
-    ('травматолог', 'травматолог'),
-    ('флеболог', 'флеболог'),
-    ('профтолог', 'профтолог'),
-    ('венеролог', 'венеролог'),
-    ('нейрохирург', 'нейрохирург'),
-    ('геронтолог', 'геронтолог'),
-    ('аритмолог', 'аритмолог'),
-    ('специалист по УЗИ', 'специалист по УЗИ'),
-    ('физиотерапевт', 'физиотерапевт'),
-    ('диетолог', 'диетолог'),
-    ('логопед', 'логопед'),
-    ('подолог', 'подолог'),
-    ('ортопед', 'ортопед'),
+    ('unknown', 'unknown'),
+    ('therapist', 'therapist'),
+    ('pediatrician', 'pediatrician'),
+    ('otolaryngologist', 'otolaryngologist'),
+    ('surgeon', 'surgeon'),
+    ('cardiologist', 'cardiologist'),
+    ('neurologist', 'neurologist'),
+    ('endocrinologist', 'endocrinologist'),
+    ('ophthalmologist', 'ophthalmologist'),
+    ('dermatologist', 'dermatologist'),
+    ('psychiatrist', 'psychiatrist'),
+    ('psychotherapist', 'psychotherapist'),
+    ('dentist', 'dentist'),
+    ('urologist', 'urologist'),
+    ('gynecologist', 'gynecologist'),
+    ('oncologist', 'oncologist'),
+    ('resuscitator', 'resuscitator'),
+    ('anesthesiologist', 'anesthesiologist'),
+    ('hematologist', 'hematologist'),
+    ('gastroenterologist', 'gastroenterologist'),
+    ('infectious disease specialist', 'infectious disease specialist'),
+    ('rheumatologist', 'rheumatologist'),
+    ('pulmonologist', 'pulmonologist'),
+    ('nephrologist', 'nephrologist'),
+    ('allergist', 'allergist'),
+    ('immunologist', 'immunologist'),
+    ('mammologist', 'mammologist'),
+    ('traumatologist', 'traumatologist'),
+    ('phlebologist', 'phlebologist'),
+    ('proctologist', 'proctologist'),
+    ('venereologist', 'venereologist'),
+    ('neurosurgeon', 'neurosurgeon'),
+    ('gerontologist', 'gerontologist'),
+    ('arrhythmologist', 'arrhythmologist'),
+    ('ultrasound specialist', 'ultrasound specialist'),
+    ('physiotherapist', 'physiotherapist'),
+    ('nutritionist', 'nutritionist'),
+    ('speech therapist', 'speech therapist'),
+    ('podiatrist', 'podiatrist'),
+    ('orthopedist', 'orthopedist'),
 )
 
 
@@ -59,17 +59,17 @@ SPECIALIZATIONS = (
 class Appointment(models.Model):
 
     time = models.DateTimeField(blank=True, null=True, auto_now=False, auto_now_add=False,
-                                verbose_name='Назначенное Время')
+                                verbose_name='Appointment Time')
     
-    status = models.CharField(max_length=10, choices=STATUSES, default='ожидание', verbose_name='Статус Заявки')
+    status = models.CharField(max_length=11, choices=STATUSES, default='pending', verbose_name='Appointment Status')
     
-    date_created = models.DateTimeField(auto_now_add=True, verbose_name='Дата Создания')
+    date_created = models.DateTimeField(auto_now_add=True, verbose_name='Date Created')
 
-    specialization = models.CharField(max_length=50, default='не известно',
+    specialization = models.CharField(max_length=50, default='unknown',
                                       choices=SPECIALIZATIONS,
-                                      verbose_name='Специализация')
+                                      verbose_name='Medical Specialization')
     
-    comment = models.TextField(blank=True, null=True, verbose_name='Комментарий')
+    comment = models.TextField(blank=True, null=True, verbose_name='Comment')
     # Relationsheeps custom reverse!
     user = models.ForeignKey(User, on_delete=models.PROTECT,
                              related_name='appointment_as_user',
@@ -94,5 +94,5 @@ class Appointment(models.Model):
 
 
     class Meta:
-        verbose_name = 'Заявление на прием'
-        verbose_name_plural = 'Заявления на прием'
+        verbose_name = 'Appointment'
+        verbose_name_plural = 'Appointments'
