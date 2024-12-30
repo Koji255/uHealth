@@ -138,9 +138,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'koji25twink@gmail.com'
-EMAIL_HOST_PASSWORD = 'usbf almh wiia cust'
-DEFAULT_FROM_EMAIL = 'uHealth'
+EMAIL_HOST_USER = os.getenv('koji25twink@gmail.com')
+EMAIL_HOST_PASSWORD = os.getenv('usbf almh wiia cust')
+DEFAULT_FROM_EMAIL = os.getenv('uHealth')
 
 
 # Internationalization
@@ -148,7 +148,7 @@ DEFAULT_FROM_EMAIL = 'uHealth'
 
 LANGUAGE_CODE = 'en'
 
-TIME_ZONE = 'Europe/Moscow'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
