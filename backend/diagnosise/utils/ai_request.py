@@ -8,9 +8,8 @@ def ai_request(symptoms):
     Returns dict of lists with keys: disease_category & description.
     '''
     client = OpenAI(
-        api_key=os.getenv("sk-AJIPtiFlPxvPvao2TYREAV99wEJHKoEq"),
-        base_url=os.getenv("https://api.proxyapi.ru/openai/v1"),
-        # base_url="https://api.openai.com/v1",
+        api_key="api_key",
+        base_url="models_url",
     )
 
     completion_disease = client.chat.completions.create(
