@@ -1,4 +1,3 @@
-import os
 from openai import OpenAI
 
 # Possible to encrease spead by collapsing querries
