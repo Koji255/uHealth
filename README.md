@@ -8,7 +8,7 @@
 
 ### AI-Powered Diagnosis
 - Input your symptoms into the application.
-- The AI, trained on a openAI 4-o model, provides up to **three possible diagnoses** or an error message if the input is insufficient.
+- The AI, trained on a openAI gpt4-o model, provides up to **three possible diagnoses** or an error message if the input is insufficient.
 - Each diagnosis is accompanied by a **detailed explanation (approximately 100 words)** about the condition.
 - At the end of each explanation, the AI recommends the type of specialist to consult.
 
@@ -31,11 +31,12 @@
    ```bash
    pip install -r requirements.txt
    ```
-3. Apply migrations:
+3. Set up variables in "/backend/settings.py" and "/diagnosise/utils/ai_request.py"
+4. Apply migrations:
    ```bash
    python manage.py migrate
    ```
-4. Start the development server:
+5. Start the development server:
    ```bash
    python manage.py runserver
    ```
@@ -45,7 +46,7 @@
 ## Usage
 1. Visit the application in your browser at `http://127.0.0.1:8000/`.
 2. Register for an account or log in if you already have one.
-3. Enter your symptoms in the input field.
+3. Enter your symptoms on the ai-consultation page.
 4. Review the diagnoses and details provided by the AI.
 5. Book an appointment with a doctor if needed.
 
@@ -53,8 +54,8 @@
 
 ## Technologies Used
 - **Backend**: Django, Django Rest Framework (DRF)
-- **AI Model**: Neural network trained on medical datasets
-- **Database**: SQLite (default, can be replaced with PostgreSQL or other databases)
+- **AI Model**: OpenAI gpt4-o
+- **Database**: PostgreSQL (can be replaced with other databases)
 
 ---
 
