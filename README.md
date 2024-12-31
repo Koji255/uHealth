@@ -17,11 +17,11 @@
 - At the end of each explanation, the AI recommends the type of specialist to consult.
 
 ### Appointment Scheduling
-<img src="backend/static/media/new_appointment.png" alt="Screenshot" width="800">
 - Users with an account can:
   - **Book an appointment** with a doctor based on the AI's recommendation.
   - **Choose the specialization** of the doctor for the appointment.
 - A history of all appointments is stored in the user's profile for future reference.
+<img src="backend/static/media/new_appointment.png" alt="Screenshot" width="800">
 
 ---
 
