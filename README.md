@@ -38,7 +38,7 @@
    ```bash
    pip install -r requirements.txt
    ```
-3. Set up variables in "/backend/settings.py" and "/diagnosise/utils/ai_request.py"
+3. Set up variables in `/backend/settings.py` and `/diagnosise/utils/ai_request.py`
 4. Apply migrations:
    ```bash
    python manage.py migrate
@@ -61,7 +61,7 @@
 
 ## Technologies Used
 - **Backend**: Django, Django Rest Framework (DRF)
-- **AI Model**: OpenAI gpt4-o
+- **AI Model**: OpenAI GPT4-o
 - **Database**: PostgreSQL (can be replaced with other databases)
 
 ---
