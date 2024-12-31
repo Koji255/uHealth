@@ -1,8 +1,8 @@
 # uHealth
 
 **uHealth** is a Django-based web application that leverages artificial intelligence to assist users in identifying potential medical conditions based on their symptoms and helps them schedule appointments with the appropriate specialists.
-<img src="backend/static/media/index.png" alt="Screenshot" width="500">
-<img src="backend/static/media/profile.png" alt="Screenshot" width="500">
+<img src="backend/static/media/index.png" alt="Screenshot" width="400">
+<img src="backend/static/media/profile.png" alt="Screenshot" width="400">
 
 
 ---
