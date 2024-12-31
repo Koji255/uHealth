@@ -10,18 +10,18 @@
 ## Features
 
 ### AI-Powered Diagnosis
+<img src="backend/static/media/ai_query.png" alt="Screenshot" width="800">
 - Input your symptoms into the application.
 - The AI, trained on a openAI gpt4-o model, provides up to **three possible diagnoses** or an error message if the input is insufficient.
 - Each diagnosis is accompanied by a **detailed explanation (approximately 100 words)** about the condition.
 - At the end of each explanation, the AI recommends the type of specialist to consult.
-<img src="backend/static/media/ai_query.png" alt="Screenshot" width="800">
 
 ### Appointment Scheduling
+<img src="backend/static/media/new_appointment.png" alt="Screenshot" width="800">
 - Users with an account can:
   - **Book an appointment** with a doctor based on the AI's recommendation.
   - **Choose the specialization** of the doctor for the appointment.
 - A history of all appointments is stored in the user's profile for future reference.
-<img src="backend/static/media/new_appointment.png" alt="Screenshot" width="800">
 
 ---
 
